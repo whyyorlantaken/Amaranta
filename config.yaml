@@ -1,5 +1,4 @@
 simulation:
-  grid_size: [128, 128]
   total_steps: 1000
   boundary_condition: "periodic"
 

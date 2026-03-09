@@ -1,5 +1,5 @@
 """
-Read a 2D array and compute the number of states in the neighborhood of each cell. 
+Read a 2D array and compute the number of states in the Moore neighborhood of each cell. 
 
 neighbours_counts:
 
@@ -11,4 +11,10 @@ neighbours_counts:
 
 Shape: N x 4, where N is the total number of cells in the grid.
 """
+
+import numpy as np
+
+class 
+
+
 
