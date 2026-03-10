@@ -125,7 +125,7 @@ def spontaneusNeutrality(epsilon, p_neutral, neighborhood):
 
         if state in [1, 2]:
             # Generate a random number between 0 and 1
-            rand = np.random.rand() #uses uniform distribution
+            rand = np.random.rand() #uses uniform distribution (change for lognormal?)
             # If the random number is less than the probability, change the state to 0
             if rand < prob:
                 new_states.append(0)
@@ -229,5 +229,4 @@ def diffusion(epsilon, p_copy, neighborhood):
 
     # turn list into array
     new_states = np.array(new_states)
-    
     return new_states
