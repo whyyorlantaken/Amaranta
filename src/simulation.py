@@ -9,6 +9,8 @@
     # update states (time evolution) (applying rules: deterministic and then stochastic or the other way around?)
     # save states population and images (arrays) (for visualization)
 
+# TODO: Create a folder per run: ChaosMode-Value_dist-DistributionType (images and evolution)
+
 # config = {
 
 #     'simulation': {
@@ -46,6 +48,7 @@
 
 import numpy as np
 import pandas as pd
+import os
 
 from .counts import getMooreCounts
 from .rules import *
@@ -151,12 +154,17 @@ class ChiralTwin:
 
         if self.save_evolution:
 
-            name = f"{self.chaos_mode}-{self.epsilon}_dist-{self.dist_type}.csv"
+            os.makedirs("data/time-evolution", exist_ok=True)
+
+            name = f"{self.chaos_mode}-{self.epsilon}_dist-{self.dist_type}"
 
             if self.chaos_mode == 'pulse':
-                name = f"{self.chaos_mode}-{self.pulse_magnitude}_dist-{self.dist_type}.csv"
+                name = f"{self.chaos_mode}-{self.pulse_magnitude}_dist-{self.dist_type}"
+
+            # Folder
+            os.makedirs(f"data/time-evolution/{name}", exist_ok=True)
 
             df = pd.DataFrame({'Achiral': list_0, 'Chiral A': list_1, 'Chiral B': list_2})
-            df.to_csv(f"data/time-evolution/{name}", index = False)
+            df.to_csv(f"data/time-evolution/{name}/evolution.csv", index = False)
 
         return list_0, list_1, list_2

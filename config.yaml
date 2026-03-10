@@ -12,7 +12,7 @@ probs:
   p_copy: 0.8
 
 chaos:
-  mode: "linear"
+  mode: "constant"
 
   constant:
     epsilon: 1.0
