@@ -68,11 +68,13 @@ class ChiralTwin:
 
     def __init__(self, array, config):
 
+        # Load iitial state
         if isinstance(array, str):
             self.array  = np.load(array)
         else:
             self.array = array
 
+        # Read parameters from config
         self.config = config
 
         self.total_steps        = config['simulation']['total_steps']
@@ -90,6 +92,7 @@ class ChiralTwin:
 
         self.chaos_mode = config['chaos']['mode']
 
+        # Set epsilon
         if self.chaos_mode == 'constant':
             self.epsilon = config['chaos']['constant']['epsilon']
 
@@ -104,17 +107,31 @@ class ChiralTwin:
             self.lin_end_epsilon   = config['chaos']['linear']['end_epsilon']
 
     def timeEvolution(self):
+        """
+        Simulates the time evolution of the system based on the defined rules and parameters.
 
+        Returns:
+        list_0 : A list containing the count of achiral states (0) at each time step.
+        list_1 : A list containing the count of left-handed chiral states (1) at each time step.
+        list_2 : A list containing the count of right-handed chiral states (2) at each time step
+        """
+        #Initialize
         list_0 = []        
         list_1 = []
         list_2 = []
 
+        # initialize 3d array to save images (time, x, y)
+        if self.save_images:
+            images = np.zeros((self.total_steps, *self.array.shape), dtype=int)
+
+        # Save initial state counts
         unique, counts = np.unique(self.array, return_counts=True)
         count_dict = dict(zip(unique, counts))
         list_0.append(count_dict.get(0, 0))
         list_1.append(count_dict.get(1, 0))
         list_2.append(count_dict.get(2, 0))
         
+        # Time evolution loop
         for i in range(self.total_steps):
 
             # Modes logic is done here.
@@ -151,10 +168,11 @@ class ChiralTwin:
             list_1.append(count_dict.get(1, 0))
             list_2.append(count_dict.get(2, 0))
 
+            if self.save_images:
+                images[i] = array
 
+        # Save evolution
         if self.save_evolution:
-
-            os.makedirs("data/time-evolution", exist_ok=True)
 
             name = f"{self.chaos_mode}-{self.epsilon}_dist-{self.dist_type}"
 
@@ -166,5 +184,15 @@ class ChiralTwin:
 
             df = pd.DataFrame({'Achiral': list_0, 'Chiral A': list_1, 'Chiral B': list_2})
             df.to_csv(f"data/time-evolution/{name}/evolution.csv", index = False)
+
+        # Save images
+        if self.save_images:
+
+            name = f"{self.chaos_mode}-{self.epsilon}_dist-{self.dist_type}"
+
+            if self.chaos_mode == 'pulse':
+                name = f"{self.chaos_mode}-{self.pulse_magnitude}_dist-{self.dist_type}"
+
+            np.save(f"data/time-evolution/{name}/images.npy", images)
 
         return list_0, list_1, list_2
