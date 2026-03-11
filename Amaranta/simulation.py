@@ -207,6 +207,8 @@ class ChiralTwin:
 
             ani = FuncAnimation(fig, update, frames=df['Achiral'].shape[0], interval=120, blit=True)
             print(f"Time evolution GIF saved!")
+            # save last frame as png
+            plt.savefig(f"data/time-evolution/{name}/time_evolution-{self.icname}.png", dpi=200)
 
             # Save GIF
             ani.save(f"data/time-evolution/{name}/time_evolution-{self.icname}.gif", writer=PillowWriter(fps=8))
@@ -235,6 +237,9 @@ class ChiralTwin:
 
             ani = FuncAnimation(fig, update, frames=data.shape[0], interval=120, blit=True)
 
+            #save last frame as png
+            plt.savefig(f"data/time-evolution/{name}/spatial-{self.icname}.png", dpi=200)
+            
             # Save GIF
             ani.save(f"data/time-evolution/{name}/spatial-{self.icname}.gif")
             print(f"Spatial GIF saved!")
