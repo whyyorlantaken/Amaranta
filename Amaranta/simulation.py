@@ -61,8 +61,10 @@ class ChiralTwin:
         # Load iitial state
         if isinstance(array, str):
             self.array  = np.load(array)
+            self.icname = array.split("/")[-1].split(".")[0]
         else:
             self.array = array
+            self.icname = "custom-array"
 
         # Read parameters from config
         self.config = config
@@ -175,7 +177,7 @@ class ChiralTwin:
             os.makedirs(f"data/time-evolution/{name}", exist_ok=True)
 
             df = pd.DataFrame({'Achiral': list_0, 'Chiral A': list_1, 'Chiral B': list_2})
-            df.to_csv(f"data/time-evolution/{name}/evolution.csv", index = False)
+            df.to_csv(f"data/time-evolution/{name}/evolution-{self.icname}.csv", index = False)
 
             #gif of time evolution
             fig, ax = plt.subplots(figsize=(4*1.3, 3*1.3), dpi=200)
@@ -207,7 +209,7 @@ class ChiralTwin:
             print(f"Time evolution GIF saved!")
 
             # Save GIF
-            ani.save(f"data/time-evolution/{name}/time_evolution.gif", writer=PillowWriter(fps=8))
+            ani.save(f"data/time-evolution/{name}/time_evolution-{self.icname}.gif", writer=PillowWriter(fps=8))
             plt.close(fig)
 
         # Save images
@@ -234,7 +236,7 @@ class ChiralTwin:
             ani = FuncAnimation(fig, update, frames=data.shape[0], interval=120, blit=True)
 
             # Save GIF
-            ani.save(f"data/time-evolution/{name}/spatial.gif")
+            ani.save(f"data/time-evolution/{name}/spatial-{self.icname}.gif")
             print(f"Spatial GIF saved!")
 
         return list_0, list_1, list_2
