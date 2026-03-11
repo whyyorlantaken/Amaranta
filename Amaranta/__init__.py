@@ -51,3 +51,15 @@ from .simulation import ChiralTwin
 #     "spatialPlot",
 #     "spatialgif",
 # ]
+
+
+#            ,-.
+#   ,     ,-.   ,-.
+#  / \   (   )-(   )
+#  \ |  ,.>-(   )-<
+#   \|,' (   )-(   )
+#    Y ___`-'   `-'
+#    |/__/   `-'
+#    |
+#    |
+#    |
