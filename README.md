@@ -1,4 +1,4 @@
-<img src="project image/logo_header.png" alt="Logo" width="600">
+<img src="project image/logo_header.png" alt="Logo" width="800">
 
 ### A digital twin of prebiotic chiral symmetry breaking using a spatial cellular automaton.
 
@@ -11,6 +11,8 @@ Homochirality is the preferred handedness of molecules in living systems. This p
 
 ## Approach
 The digital twin represents a chemically active surface using a spatial cellular automaton (CA). Achiral, left-, and right-handed molecules are discrete states that interact locally through rules simulating autocatalysis, mutual inhibition, diffusion, and stochastic fluctuations.
+
+
 
 ## Directory structure
 
@@ -49,6 +51,20 @@ Amaranta/
 ```
 
 ## How to Run
+
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/whyyorlantaken/Amaranta.git
+cd Amaranta
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+Run the simulation with a configuration file and specify the initial conditions:
 
 ```python
 python main.py config.yaml -ic initial_conditions
