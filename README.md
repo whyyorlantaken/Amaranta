@@ -25,6 +25,7 @@ flowchart LR
     G --> H[evolution.csv]
     G --> I[time_evolution.gif + png]
     G --> J[spatial.gif + png]
+```
 
 ## Directory structure
 
