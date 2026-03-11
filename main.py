@@ -21,10 +21,12 @@ def main():
 
     # Initial condition array
     array = "data/initial-conditions/" + args.ic + ".npy"
+    print(f"Initial condition loaded")
 
     # All other parameters
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
+    print(f"Configuration loaded")
 
     # Run!
     twin = ChiralTwin(array, config)
@@ -43,7 +45,8 @@ if __name__ == "__main__":
   ║ ⢀⣾⣿⣿⣉⣭⣷⠛⣻⣄⢻⣷⣦⣄⠀⠀⠀  ██▀▀██   ███▄███▄ ▄▀▀█▄ ████▄▄▀▀█▄ ████▄ ██ ▄▀▀█▄        ║
   ║ ⠈⠻⢿⣿⠟⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀▄ ██  ██   ██ ██ ██ ▄█▀██ ██   ▄█▀██ ██ ██ ██ ▄█▀██        ║
   ║ ⠀⠀⠀⠀⠸⣿⣿⣿⣿⡇⠻⠿⠟⠋⠀⠀⠀▀██▀  ▀█▄█▄██ ██ ▀█▄▀█▄██▄█▀   ▀█▄██▄██ ▀█▄██▄▀█▄██ v1.0   ║
-  ║ ⠀⠀⠀⠀⠀⠻⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀                                                           ║
+  ║ ⠀⠀⠀⠀⠀⠻⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀Modelling                             Homochirality        ║
+  ║                                                                             ║
   ║                       Mariannly Marquez & Yorlan Males-Araujo, March 2026   ║
   ╚═════════════════════════════════════════════════════════════════════════════╝
     """

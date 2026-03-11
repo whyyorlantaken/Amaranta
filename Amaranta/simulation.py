@@ -161,6 +161,8 @@ class ChiralTwin:
             list_1.append(count_dict.get(1, 0))
             list_2.append(count_dict.get(2, 0))
 
+        print(f"Time evolution completed!")
+        
         # Save evolution
         if self.save_evolution:
 
@@ -202,6 +204,7 @@ class ChiralTwin:
                 return [line, line_chiral_a, line_chiral_b]
 
             ani = FuncAnimation(fig, update, frames=df['Achiral'].shape[0], interval=120, blit=True)
+            print(f"Time evolution GIF saved!")
 
             # Save GIF
             ani.save(f"data/time-evolution/{name}/time_evolution.gif", writer=PillowWriter(fps=8))
@@ -232,5 +235,6 @@ class ChiralTwin:
 
             # Save GIF
             ani.save(f"data/time-evolution/{name}/spatial.gif")
+            print(f"Spatial GIF saved!")
 
         return list_0, list_1, list_2

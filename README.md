@@ -1,4 +1,5 @@
-# Homochirality Cellular Automaton
+![Amaranta Logo](project image/logo_name.png)
+
 
 A digital twin of prebiotic chiral symmetry breaking using a spatial cellular automaton.
 
