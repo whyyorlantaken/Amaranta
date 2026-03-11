@@ -37,7 +37,7 @@ Homochirality-Cellular-Automaton/
 ## Run
 
 ```python
-python main.py config.yaml
+python main.py config.yaml -ic initial_conditions
 ```
 
 ## Example `main.py`
