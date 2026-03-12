@@ -12,20 +12,7 @@ Homochirality is the preferred handedness of molecules in living systems. This p
 ## Approach
 The digital twin represents a chemically active surface using a spatial cellular automaton (CA). Achiral, left-, and right-handed molecules are discrete states that interact locally through rules simulating autocatalysis, mutual inhibition, diffusion, and stochastic fluctuations.
 
-### Workflow:
-
-```mermaid
-flowchart LR
-    A[Load config.yaml] --> B[Load initial condition .npy]
-    B --> C[Initialize ChiralTwin]
-    C --> D[Run time evolution loop]
-    D --> E[Apply CA rules<br/>autocatalysis, inhibition, diffusion]
-    E --> F[Count achiral/chiral states]
-    F --> G[Save outputs]
-    G --> H[evolution.csv]
-    G --> I[time_evolution.gif + png]
-    G --> J[spatial.gif + png]
-```
+### Workflow
 
 ## Directory structure
 
