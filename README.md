@@ -1,4 +1,4 @@
-<img src="project image/logo_header.png" alt="Logo" width="800">
+<img src="project-image/logo_header.png" alt="Logo" width="800">
 
 <div align="center">
 
@@ -26,7 +26,7 @@ The digital twin represents a chemically active surface using a spatial cellular
 ```
 Amaranta/
 │
-├── Amaranta/                # Source package
+├── amaranta/                # Source package
 │   ├── __init__.py
 │   ├── counts.py            # Moore neighborhood counts
 │   ├── rules.py             # Logic for all CA rules
@@ -41,7 +41,7 @@ Amaranta/
 ├── notebooks/             
 │
 ├── results/                 # Final plots and animations
-├── project image/           # Logo and header images
+├── project-image/           # Logo and header images
 │
 ├── main.py                  # Entry point to run experiments
 ├── config.yaml              # Configuration file example

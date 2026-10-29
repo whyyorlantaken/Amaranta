@@ -1,7 +1,7 @@
 import argparse
 import yaml
 
-from Amaranta.simulation import ChiralTwin
+from amaranta.simulation import ChiralTwin
 
 # Command: python main.py config.yaml -ic achiral_majority_64
 
